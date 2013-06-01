@@ -1,0 +1,660 @@
+26 Apr 2013 04:44:50,839 INFO  [org.apache.struts.tiles.TilesPlugin] Tiles definition factory loaded for module ''.
+26 Apr 2013 04:44:50,854 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validator-rules.xml'
+26 Apr 2013 04:44:50,854 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validation.xml'
+26 Apr 2013 04:44:52,105 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action, module '': initialization started
+26 Apr 2013 04:44:52,152 INFO  [org.springframework.context.support.AbstractApplicationContext] Refreshing org.springframework.web.context.support.XmlWebApplicationContext@9444d1: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 04:44:52 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 04:44:52,261 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from ServletContext resource [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 04:44:52,402 INFO  [org.springframework.context.support.AbstractApplicationContext] Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@9444d1]: org.springframework.beans.factory.support.DefaultListableBeanFactory@94af2f
+26 Apr 2013 04:44:52,574 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@94af2f: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 04:44:52,839 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 04:44:53,199 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.3.0.Beta1}
+26 Apr 2013 04:44:53,199 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+26 Apr 2013 04:44:53,214 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+26 Apr 2013 04:44:53,793 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+26 Apr 2013 04:44:54,183 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+26 Apr 2013 04:44:54,246 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000115: Hibernate connection pool size: 20
+26 Apr 2013 04:44:54,246 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000006: Autocommit mode: false
+26 Apr 2013 04:44:54,246 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 04:44:54,246 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000046: Connection properties: {user=yra, password=1234}
+26 Apr 2013 04:44:55,058 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.OracleDialect
+26 Apr 2013 04:44:55,074 WARN  [org.hibernate.dialect.Oracle9Dialect] HHH000063: The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+26 Apr 2013 04:44:55,074 WARN  [org.hibernate.dialect.OracleDialect] HHH000064: The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+26 Apr 2013 04:44:55,152 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+26 Apr 2013 04:44:55,824 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] Using context class 'org.springframework.web.context.support.XmlWebApplicationContext' for servlet 'action'
+26 Apr 2013 04:44:55,824 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action', module '': initialization completed in 3719 ms
+26 Apr 2013 04:44:56,809 INFO  [org.apache.struts.tiles.TilesRequestProcessor] Tiles definition factory found for request processor ''.
+26 Apr 2013 04:48:16,784 INFO  [org.springframework.context.support.AbstractApplicationContext] Closing org.springframework.web.context.support.XmlWebApplicationContext@9444d1: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 04:44:52 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 04:48:16,784 INFO  [org.springframework.beans.factory.support.DefaultSingletonBeanRegistry] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@94af2f: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 04:48:16,800 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000030: Cleaning up connection pool [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 04:48:16,800 INFO  [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 04:48:16,800 WARN  [org.springframework.beans.factory.support.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'entityManagerFactory'
+org.hibernate.HibernateException: registry does not contain entity manager factory: persistenceUnit
+	at org.hibernate.jpa.internal.EntityManagerFactoryRegistry.removeEntityManagerFactory(EntityManagerFactoryRegistry.java:117)
+	at org.hibernate.jpa.internal.EntityManagerFactoryImpl.close(EntityManagerFactoryImpl.java:259)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(AbstractEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(AbstractEntityManagerFactoryBean.java:519)
+	at $Proxy10.close(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.destroy(AbstractEntityManagerFactoryBean.java:443)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:170)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:486)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:462)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:430)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:841)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:819)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:783)
+	at org.springframework.web.struts.ContextLoaderPlugIn.destroy(ContextLoaderPlugIn.java:389)
+	at org.apache.struts.action.ActionServlet.destroyModules(ActionServlet.java:516)
+	at org.apache.struts.action.ActionServlet.destroy(ActionServlet.java:284)
+	at org.apache.catalina.core.StandardWrapper.unload(StandardWrapper.java:1394)
+	at org.apache.catalina.core.StandardWrapper.stop(StandardWrapper.java:1739)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4601)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.StandardEngine.stop(StandardEngine.java:448)
+	at org.apache.catalina.core.StandardService.stop(StandardService.java:587)
+	at org.apache.catalina.core.StandardServer.stop(StandardServer.java:744)
+	at org.apache.catalina.startup.Catalina.stop(Catalina.java:648)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:615)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+26 Apr 2013 04:48:20,925 INFO  [org.apache.struts.tiles.TilesPlugin] Tiles definition factory loaded for module ''.
+26 Apr 2013 04:48:20,925 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validator-rules.xml'
+26 Apr 2013 04:48:20,925 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validation.xml'
+26 Apr 2013 04:48:22,128 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action, module '': initialization started
+26 Apr 2013 04:48:22,175 INFO  [org.springframework.context.support.AbstractApplicationContext] Refreshing org.springframework.web.context.support.XmlWebApplicationContext@5660d6: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 04:48:22 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 04:48:22,316 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from ServletContext resource [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 04:48:22,456 INFO  [org.springframework.context.support.AbstractApplicationContext] Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@5660d6]: org.springframework.beans.factory.support.DefaultListableBeanFactory@4a9a7d
+26 Apr 2013 04:48:22,644 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4a9a7d: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 04:48:22,894 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 04:48:23,222 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.3.0.Beta1}
+26 Apr 2013 04:48:23,222 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+26 Apr 2013 04:48:23,238 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+26 Apr 2013 04:48:23,816 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+26 Apr 2013 04:48:24,160 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+26 Apr 2013 04:48:24,222 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000115: Hibernate connection pool size: 20
+26 Apr 2013 04:48:24,238 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000006: Autocommit mode: false
+26 Apr 2013 04:48:24,238 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 04:48:24,238 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000046: Connection properties: {user=yra, password=1234}
+26 Apr 2013 04:48:25,003 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.OracleDialect
+26 Apr 2013 04:48:25,019 WARN  [org.hibernate.dialect.Oracle9Dialect] HHH000063: The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+26 Apr 2013 04:48:25,019 WARN  [org.hibernate.dialect.OracleDialect] HHH000064: The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+26 Apr 2013 04:48:25,097 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+26 Apr 2013 04:48:25,832 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] Using context class 'org.springframework.web.context.support.XmlWebApplicationContext' for servlet 'action'
+26 Apr 2013 04:48:25,832 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action', module '': initialization completed in 3704 ms
+26 Apr 2013 04:48:57,021 INFO  [org.apache.struts.tiles.TilesRequestProcessor] Tiles definition factory found for request processor ''.
+26 Apr 2013 05:34:15,095 INFO  [org.springframework.context.support.AbstractApplicationContext] Closing org.springframework.web.context.support.XmlWebApplicationContext@5660d6: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 04:48:22 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:34:15,095 INFO  [org.springframework.beans.factory.support.DefaultSingletonBeanRegistry] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4a9a7d: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 05:34:15,095 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000030: Cleaning up connection pool [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 05:34:15,095 INFO  [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 05:34:15,204 WARN  [org.springframework.beans.factory.support.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'entityManagerFactory'
+org.hibernate.HibernateException: registry does not contain entity manager factory: persistenceUnit
+	at org.hibernate.jpa.internal.EntityManagerFactoryRegistry.removeEntityManagerFactory(EntityManagerFactoryRegistry.java:117)
+	at org.hibernate.jpa.internal.EntityManagerFactoryImpl.close(EntityManagerFactoryImpl.java:259)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(AbstractEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(AbstractEntityManagerFactoryBean.java:519)
+	at $Proxy10.close(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.destroy(AbstractEntityManagerFactoryBean.java:443)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:170)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:486)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:462)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:430)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:841)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:819)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:783)
+	at org.springframework.web.struts.ContextLoaderPlugIn.destroy(ContextLoaderPlugIn.java:389)
+	at org.apache.struts.action.ActionServlet.destroyModules(ActionServlet.java:516)
+	at org.apache.struts.action.ActionServlet.destroy(ActionServlet.java:284)
+	at org.apache.catalina.core.StandardWrapper.unload(StandardWrapper.java:1394)
+	at org.apache.catalina.core.StandardWrapper.stop(StandardWrapper.java:1739)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4601)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.StandardEngine.stop(StandardEngine.java:448)
+	at org.apache.catalina.core.StandardService.stop(StandardService.java:587)
+	at org.apache.catalina.core.StandardServer.stop(StandardServer.java:744)
+	at org.apache.catalina.startup.Catalina.stop(Catalina.java:648)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:615)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+26 Apr 2013 05:34:22,158 INFO  [org.apache.struts.tiles.TilesPlugin] Tiles definition factory loaded for module ''.
+26 Apr 2013 05:34:22,189 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validator-rules.xml'
+26 Apr 2013 05:34:22,220 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validation.xml'
+26 Apr 2013 05:34:23,642 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action, module '': initialization started
+26 Apr 2013 05:34:23,721 INFO  [org.springframework.context.support.AbstractApplicationContext] Refreshing org.springframework.web.context.support.XmlWebApplicationContext@7c3885: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 05:34:23 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:34:23,924 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from ServletContext resource [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:34:24,127 INFO  [org.springframework.context.support.AbstractApplicationContext] Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@7c3885]: org.springframework.beans.factory.support.DefaultListableBeanFactory@18488ef
+26 Apr 2013 05:34:24,502 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@18488ef: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 05:34:25,080 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 05:34:25,986 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.3.0.Beta1}
+26 Apr 2013 05:34:26,018 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+26 Apr 2013 05:34:26,018 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+26 Apr 2013 05:34:27,471 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+26 Apr 2013 05:34:28,065 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+26 Apr 2013 05:34:28,236 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000115: Hibernate connection pool size: 20
+26 Apr 2013 05:34:28,236 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000006: Autocommit mode: false
+26 Apr 2013 05:34:28,236 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 05:34:28,236 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000046: Connection properties: {user=yra, password=1234}
+26 Apr 2013 05:34:29,596 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.OracleDialect
+26 Apr 2013 05:34:29,612 WARN  [org.hibernate.dialect.Oracle9Dialect] HHH000063: The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+26 Apr 2013 05:34:29,627 WARN  [org.hibernate.dialect.OracleDialect] HHH000064: The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+26 Apr 2013 05:34:29,752 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+26 Apr 2013 05:34:31,534 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] Using context class 'org.springframework.web.context.support.XmlWebApplicationContext' for servlet 'action'
+26 Apr 2013 05:34:31,534 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action', module '': initialization completed in 7892 ms
+26 Apr 2013 05:34:48,238 INFO  [org.springframework.context.support.AbstractApplicationContext] Closing org.springframework.web.context.support.XmlWebApplicationContext@7c3885: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 05:34:23 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:34:48,238 INFO  [org.springframework.beans.factory.support.DefaultSingletonBeanRegistry] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@18488ef: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 05:34:48,253 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000030: Cleaning up connection pool [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 05:34:48,253 INFO  [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 05:34:48,269 WARN  [org.springframework.beans.factory.support.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'entityManagerFactory'
+org.hibernate.HibernateException: registry does not contain entity manager factory: persistenceUnit
+	at org.hibernate.jpa.internal.EntityManagerFactoryRegistry.removeEntityManagerFactory(EntityManagerFactoryRegistry.java:117)
+	at org.hibernate.jpa.internal.EntityManagerFactoryImpl.close(EntityManagerFactoryImpl.java:259)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(AbstractEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(AbstractEntityManagerFactoryBean.java:519)
+	at $Proxy10.close(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.destroy(AbstractEntityManagerFactoryBean.java:443)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:170)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:486)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:462)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:430)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:841)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:819)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:783)
+	at org.springframework.web.struts.ContextLoaderPlugIn.destroy(ContextLoaderPlugIn.java:389)
+	at org.apache.struts.action.ActionServlet.destroyModules(ActionServlet.java:516)
+	at org.apache.struts.action.ActionServlet.destroy(ActionServlet.java:284)
+	at org.apache.catalina.core.StandardWrapper.unload(StandardWrapper.java:1394)
+	at org.apache.catalina.core.StandardWrapper.stop(StandardWrapper.java:1739)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4601)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.StandardEngine.stop(StandardEngine.java:448)
+	at org.apache.catalina.core.StandardService.stop(StandardService.java:587)
+	at org.apache.catalina.core.StandardServer.stop(StandardServer.java:744)
+	at org.apache.catalina.startup.Catalina.stop(Catalina.java:648)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:615)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+26 Apr 2013 05:34:53,379 INFO  [org.apache.struts.tiles.TilesPlugin] Tiles definition factory loaded for module ''.
+26 Apr 2013 05:34:53,379 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validator-rules.xml'
+26 Apr 2013 05:34:53,379 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validation.xml'
+26 Apr 2013 05:34:54,675 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action, module '': initialization started
+26 Apr 2013 05:34:54,707 INFO  [org.springframework.context.support.AbstractApplicationContext] Refreshing org.springframework.web.context.support.XmlWebApplicationContext@13576a2: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 05:34:54 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:34:54,832 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from ServletContext resource [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:34:54,972 INFO  [org.springframework.context.support.AbstractApplicationContext] Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@13576a2]: org.springframework.beans.factory.support.DefaultListableBeanFactory@ded0f0
+26 Apr 2013 05:34:55,175 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@ded0f0: defining beans [/news,newsDAO,sessionFactory]; root of factory hierarchy
+26 Apr 2013 05:34:55,707 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+26 Apr 2013 05:34:55,722 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.3.0.Beta1}
+26 Apr 2013 05:34:55,738 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+26 Apr 2013 05:34:55,738 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+26 Apr 2013 05:34:55,816 INFO  [org.hibernate.cfg.Configuration] HHH000044: Configuring from URL: file:/C:/Documents%20and%20Settings/Yury_Yaroshevich/workspaceIndigo/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/TestAppHibernateJPA/WEB-INF/classes/hibernate.cfg.xml
+26 Apr 2013 05:34:55,926 INFO  [org.hibernate.cfg.Configuration] HHH000221: Reading mappings from resource: com/epam/ta/model/News.hbm.xml
+26 Apr 2013 05:34:55,988 INFO  [org.hibernate.cfg.Configuration] HHH000041: Configured SessionFactory: null
+26 Apr 2013 05:34:56,347 INFO  [org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator] HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+26 Apr 2013 05:34:56,347 INFO  [org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider] HHH010002: C3P0 using driver: null at URL: jdbc:oracle:thin:@localhost:1521:xe
+26 Apr 2013 05:34:56,347 INFO  [org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider] HHH000046: Connection properties: {user=yra, password=****}
+26 Apr 2013 05:34:56,347 INFO  [org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider] HHH000006: Autocommit mode: false
+26 Apr 2013 05:34:56,347 WARN  [org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider] HHH000148: No JDBC Driver class was specified by property hibernate.connection.driver_class
+26 Apr 2013 05:34:56,394 INFO  [com.mchange.v2.log.MLog] MLog clients using log4j logging.
+26 Apr 2013 05:34:56,691 INFO  [com.mchange.v2.c3p0.C3P0Registry] Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+26 Apr 2013 05:34:56,863 INFO  [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@c9947fa8 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@ce3e9ec9 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2s58jz8ujd8nqw1nebc2z|c08593, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@ca519bca [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 2s58jz8ujd8nqw1nebc2z|e8a0cd, jdbcUrl -> jdbc:oracle:thin:@localhost:1521:xe, properties -> {user=******, password=******} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 2s58jz8ujd8nqw1nebc2z|df0256, numHelperThreads -> 3 ]
+26 Apr 2013 05:34:57,957 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.OracleDialect
+26 Apr 2013 05:34:57,973 WARN  [org.hibernate.dialect.Oracle9Dialect] HHH000063: The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+26 Apr 2013 05:34:57,988 WARN  [org.hibernate.dialect.OracleDialect] HHH000064: The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+26 Apr 2013 05:34:57,988 INFO  [org.hibernate.engine.jdbc.internal.LobCreatorBuilder] HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+26 Apr 2013 05:34:58,035 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] HHH000399: Using default transaction strategy (direct JDBC transactions)
+26 Apr 2013 05:34:58,051 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+26 Apr 2013 05:34:58,910 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] Using context class 'org.springframework.web.context.support.XmlWebApplicationContext' for servlet 'action'
+26 Apr 2013 05:34:58,910 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action', module '': initialization completed in 4235 ms
+26 Apr 2013 05:35:19,911 INFO  [org.apache.struts.tiles.TilesRequestProcessor] Tiles definition factory found for request processor ''.
+26 Apr 2013 05:45:20,378 INFO  [org.springframework.context.support.AbstractApplicationContext] Closing org.springframework.web.context.support.XmlWebApplicationContext@13576a2: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 05:34:54 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:45:20,378 INFO  [org.springframework.beans.factory.support.DefaultSingletonBeanRegistry] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@ded0f0: defining beans [/news,newsDAO,sessionFactory]; root of factory hierarchy
+26 Apr 2013 05:45:23,269 INFO  [org.apache.struts.tiles.TilesPlugin] Tiles definition factory loaded for module ''.
+26 Apr 2013 05:45:23,284 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validator-rules.xml'
+26 Apr 2013 05:45:23,284 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validation.xml'
+26 Apr 2013 05:45:24,316 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action, module '': initialization started
+26 Apr 2013 05:45:24,347 INFO  [org.springframework.context.support.AbstractApplicationContext] Refreshing org.springframework.web.context.support.XmlWebApplicationContext@10ede48: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 05:45:24 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:45:24,456 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from ServletContext resource [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:45:24,550 INFO  [org.springframework.context.support.AbstractApplicationContext] Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@10ede48]: org.springframework.beans.factory.support.DefaultListableBeanFactory@15f6479
+26 Apr 2013 05:45:24,691 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@15f6479: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 05:45:24,909 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 05:45:25,394 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.3.0.Beta1}
+26 Apr 2013 05:45:25,409 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+26 Apr 2013 05:45:25,409 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+26 Apr 2013 05:45:25,925 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+26 Apr 2013 05:45:26,253 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+26 Apr 2013 05:45:26,316 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000115: Hibernate connection pool size: 20
+26 Apr 2013 05:45:26,316 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000006: Autocommit mode: false
+26 Apr 2013 05:45:26,316 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 05:45:26,316 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000046: Connection properties: {user=yra, password=1234}
+26 Apr 2013 05:45:27,253 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.OracleDialect
+26 Apr 2013 05:45:27,285 WARN  [org.hibernate.dialect.Oracle9Dialect] HHH000063: The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+26 Apr 2013 05:45:27,285 WARN  [org.hibernate.dialect.OracleDialect] HHH000064: The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+26 Apr 2013 05:45:27,394 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+26 Apr 2013 05:45:28,831 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] Using context class 'org.springframework.web.context.support.XmlWebApplicationContext' for servlet 'action'
+26 Apr 2013 05:45:28,831 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action', module '': initialization completed in 4515 ms
+26 Apr 2013 05:48:19,364 INFO  [org.springframework.context.support.AbstractApplicationContext] Closing org.springframework.web.context.support.XmlWebApplicationContext@10ede48: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 05:45:24 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:48:19,364 INFO  [org.springframework.beans.factory.support.DefaultSingletonBeanRegistry] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@15f6479: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 05:48:19,364 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000030: Cleaning up connection pool [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 05:48:19,379 INFO  [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 05:48:19,379 WARN  [org.springframework.beans.factory.support.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'entityManagerFactory'
+org.hibernate.HibernateException: registry does not contain entity manager factory: persistenceUnit
+	at org.hibernate.jpa.internal.EntityManagerFactoryRegistry.removeEntityManagerFactory(EntityManagerFactoryRegistry.java:117)
+	at org.hibernate.jpa.internal.EntityManagerFactoryImpl.close(EntityManagerFactoryImpl.java:259)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(AbstractEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(AbstractEntityManagerFactoryBean.java:519)
+	at $Proxy12.close(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.destroy(AbstractEntityManagerFactoryBean.java:443)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:170)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:486)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:462)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:430)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:841)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:819)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:783)
+	at org.springframework.web.struts.ContextLoaderPlugIn.destroy(ContextLoaderPlugIn.java:389)
+	at org.apache.struts.action.ActionServlet.destroyModules(ActionServlet.java:516)
+	at org.apache.struts.action.ActionServlet.destroy(ActionServlet.java:284)
+	at org.apache.catalina.core.StandardWrapper.unload(StandardWrapper.java:1394)
+	at org.apache.catalina.core.StandardWrapper.stop(StandardWrapper.java:1739)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4601)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3222)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1309)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1601)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1590)
+	at java.lang.Thread.run(Unknown Source)
+26 Apr 2013 05:48:24,864 INFO  [org.apache.struts.tiles.TilesPlugin] Tiles definition factory loaded for module ''.
+26 Apr 2013 05:48:24,879 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validator-rules.xml'
+26 Apr 2013 05:48:24,879 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validation.xml'
+26 Apr 2013 05:48:27,520 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action, module '': initialization started
+26 Apr 2013 05:48:27,567 INFO  [org.springframework.context.support.AbstractApplicationContext] Refreshing org.springframework.web.context.support.XmlWebApplicationContext@4e57ba: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 05:48:27 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:48:27,723 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from ServletContext resource [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:48:27,864 INFO  [org.springframework.context.support.AbstractApplicationContext] Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@4e57ba]: org.springframework.beans.factory.support.DefaultListableBeanFactory@ec7913
+26 Apr 2013 05:48:28,082 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@ec7913: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 05:48:28,817 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 05:48:29,286 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.3.0.Beta1}
+26 Apr 2013 05:48:29,301 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+26 Apr 2013 05:48:29,301 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+26 Apr 2013 05:48:30,161 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+26 Apr 2013 05:48:30,645 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+26 Apr 2013 05:48:30,739 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000115: Hibernate connection pool size: 20
+26 Apr 2013 05:48:30,739 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000006: Autocommit mode: false
+26 Apr 2013 05:48:30,739 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 05:48:30,739 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000046: Connection properties: {user=yra, password=1234}
+26 Apr 2013 05:48:31,942 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.OracleDialect
+26 Apr 2013 05:48:31,973 WARN  [org.hibernate.dialect.Oracle9Dialect] HHH000063: The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+26 Apr 2013 05:48:31,973 WARN  [org.hibernate.dialect.OracleDialect] HHH000064: The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+26 Apr 2013 05:48:32,067 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+26 Apr 2013 05:48:33,942 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] Using context class 'org.springframework.web.context.support.XmlWebApplicationContext' for servlet 'action'
+26 Apr 2013 05:48:33,942 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action', module '': initialization completed in 6422 ms
+26 Apr 2013 05:49:34,192 INFO  [org.springframework.context.support.AbstractApplicationContext] Closing org.springframework.web.context.support.XmlWebApplicationContext@4e57ba: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 05:48:27 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:49:34,192 INFO  [org.springframework.beans.factory.support.DefaultSingletonBeanRegistry] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@ec7913: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 05:49:34,192 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000030: Cleaning up connection pool [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 05:49:34,192 INFO  [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 05:49:34,208 WARN  [org.springframework.beans.factory.support.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'entityManagerFactory'
+org.hibernate.HibernateException: registry does not contain entity manager factory: persistenceUnit
+	at org.hibernate.jpa.internal.EntityManagerFactoryRegistry.removeEntityManagerFactory(EntityManagerFactoryRegistry.java:117)
+	at org.hibernate.jpa.internal.EntityManagerFactoryImpl.close(EntityManagerFactoryImpl.java:259)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(AbstractEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(AbstractEntityManagerFactoryBean.java:519)
+	at $Proxy21.close(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.destroy(AbstractEntityManagerFactoryBean.java:443)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:170)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:486)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:462)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:430)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:841)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:819)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:783)
+	at org.springframework.web.struts.ContextLoaderPlugIn.destroy(ContextLoaderPlugIn.java:389)
+	at org.apache.struts.action.ActionServlet.destroyModules(ActionServlet.java:516)
+	at org.apache.struts.action.ActionServlet.destroy(ActionServlet.java:284)
+	at org.apache.catalina.core.StandardWrapper.unload(StandardWrapper.java:1394)
+	at org.apache.catalina.core.StandardWrapper.stop(StandardWrapper.java:1739)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4601)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3222)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1309)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1601)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1590)
+	at java.lang.Thread.run(Unknown Source)
+26 Apr 2013 05:49:37,177 INFO  [org.apache.struts.tiles.TilesPlugin] Tiles definition factory loaded for module ''.
+26 Apr 2013 05:49:37,192 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validator-rules.xml'
+26 Apr 2013 05:49:37,192 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validation.xml'
+26 Apr 2013 05:49:39,567 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action, module '': initialization started
+26 Apr 2013 05:49:40,052 INFO  [org.springframework.context.support.AbstractApplicationContext] Refreshing org.springframework.web.context.support.XmlWebApplicationContext@1dd63a8: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 05:49:40 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:49:40,224 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from ServletContext resource [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:49:40,364 INFO  [org.springframework.context.support.AbstractApplicationContext] Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@1dd63a8]: org.springframework.beans.factory.support.DefaultListableBeanFactory@10ed0a5
+26 Apr 2013 05:49:40,583 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@10ed0a5: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 05:49:41,021 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 05:49:41,552 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.3.0.Beta1}
+26 Apr 2013 05:49:41,552 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+26 Apr 2013 05:49:41,567 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+26 Apr 2013 05:49:42,396 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+26 Apr 2013 05:49:43,442 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+26 Apr 2013 05:49:43,552 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000115: Hibernate connection pool size: 20
+26 Apr 2013 05:49:43,552 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000006: Autocommit mode: false
+26 Apr 2013 05:49:43,552 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 05:49:43,552 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000046: Connection properties: {user=yra, password=1234}
+26 Apr 2013 05:49:44,552 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.OracleDialect
+26 Apr 2013 05:49:44,567 WARN  [org.hibernate.dialect.Oracle9Dialect] HHH000063: The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+26 Apr 2013 05:49:44,583 WARN  [org.hibernate.dialect.OracleDialect] HHH000064: The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+26 Apr 2013 05:49:44,692 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+26 Apr 2013 05:49:46,567 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] Using context class 'org.springframework.web.context.support.XmlWebApplicationContext' for servlet 'action'
+26 Apr 2013 05:49:46,567 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action', module '': initialization completed in 7000 ms
+26 Apr 2013 05:50:27,099 INFO  [org.springframework.context.support.AbstractApplicationContext] Closing org.springframework.web.context.support.XmlWebApplicationContext@1dd63a8: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 05:49:40 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:50:27,099 INFO  [org.springframework.beans.factory.support.DefaultSingletonBeanRegistry] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@10ed0a5: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 05:50:27,115 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000030: Cleaning up connection pool [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 05:50:27,115 INFO  [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 05:50:27,115 WARN  [org.springframework.beans.factory.support.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'entityManagerFactory'
+org.hibernate.HibernateException: registry does not contain entity manager factory: persistenceUnit
+	at org.hibernate.jpa.internal.EntityManagerFactoryRegistry.removeEntityManagerFactory(EntityManagerFactoryRegistry.java:117)
+	at org.hibernate.jpa.internal.EntityManagerFactoryImpl.close(EntityManagerFactoryImpl.java:259)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(AbstractEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(AbstractEntityManagerFactoryBean.java:519)
+	at $Proxy30.close(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.destroy(AbstractEntityManagerFactoryBean.java:443)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:170)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:486)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:462)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:430)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:841)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:819)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:783)
+	at org.springframework.web.struts.ContextLoaderPlugIn.destroy(ContextLoaderPlugIn.java:389)
+	at org.apache.struts.action.ActionServlet.destroyModules(ActionServlet.java:516)
+	at org.apache.struts.action.ActionServlet.destroy(ActionServlet.java:284)
+	at org.apache.catalina.core.StandardWrapper.unload(StandardWrapper.java:1394)
+	at org.apache.catalina.core.StandardWrapper.stop(StandardWrapper.java:1739)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4601)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3222)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1309)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1601)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1590)
+	at java.lang.Thread.run(Unknown Source)
+26 Apr 2013 05:50:30,365 INFO  [org.apache.struts.tiles.TilesPlugin] Tiles definition factory loaded for module ''.
+26 Apr 2013 05:50:30,381 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validator-rules.xml'
+26 Apr 2013 05:50:30,381 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validation.xml'
+26 Apr 2013 05:50:31,443 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action, module '': initialization started
+26 Apr 2013 05:50:31,537 INFO  [org.springframework.context.support.AbstractApplicationContext] Refreshing org.springframework.web.context.support.XmlWebApplicationContext@1ac0c5: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 05:50:31 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:50:31,693 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from ServletContext resource [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 05:50:31,818 INFO  [org.springframework.context.support.AbstractApplicationContext] Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@1ac0c5]: org.springframework.beans.factory.support.DefaultListableBeanFactory@cdc74
+26 Apr 2013 05:50:32,068 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@cdc74: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 05:50:32,412 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 05:50:33,912 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.3.0.Beta1}
+26 Apr 2013 05:50:33,912 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+26 Apr 2013 05:50:33,912 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+26 Apr 2013 05:50:35,802 INFO  [org.springframework.beans.factory.support.DefaultSingletonBeanRegistry] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@cdc74: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 05:50:35,802 ERROR [org.springframework.web.struts.ContextLoaderPlugIn] Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name '/news' defined in ServletContext resource [/WEB-INF/newsAppContext.xml]: Cannot resolve reference to bean 'newsDAO' while setting bean property 'newsDAO'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'newsDAO' defined in ServletContext resource [/WEB-INF/newsAppContext.xml]: Cannot resolve reference to bean 'entityManagerFactory' while setting bean property 'entityManagerFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in ServletContext resource [/WEB-INF/newsAppContext.xml]: Invocation of init method failed; nested exception is java.lang.OutOfMemoryError: PermGen space
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:315)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1243)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1011)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory$1.run(AbstractAutowireCapableBeanFactory.java:412)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:383)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:276)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:273)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:175)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:485)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:716)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:377)
+	at org.springframework.web.context.support.AbstractRefreshableWebApplicationContext.refresh(AbstractRefreshableWebApplicationContext.java:134)
+	at org.springframework.web.struts.ContextLoaderPlugIn.createWebApplicationContext(ContextLoaderPlugIn.java:352)
+	at org.springframework.web.struts.ContextLoaderPlugIn.initWebApplicationContext(ContextLoaderPlugIn.java:295)
+	at org.springframework.web.struts.ContextLoaderPlugIn.init(ContextLoaderPlugIn.java:224)
+	at org.apache.struts.action.ActionServlet.initModulePlugIns(ActionServlet.java:869)
+	at org.apache.struts.action.ActionServlet.init(ActionServlet.java:336)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:212)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1173)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:993)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4187)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4496)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3228)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1309)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1601)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1590)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'newsDAO' defined in ServletContext resource [/WEB-INF/newsAppContext.xml]: Cannot resolve reference to bean 'entityManagerFactory' while setting bean property 'entityManagerFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in ServletContext resource [/WEB-INF/newsAppContext.xml]: Invocation of init method failed; nested exception is java.lang.OutOfMemoryError: PermGen space
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:315)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1243)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1011)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory$1.run(AbstractAutowireCapableBeanFactory.java:412)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:383)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:276)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:273)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:175)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:309)
+	... 33 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in ServletContext resource [/WEB-INF/newsAppContext.xml]: Invocation of init method failed; nested exception is java.lang.OutOfMemoryError: PermGen space
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory$1.run(AbstractAutowireCapableBeanFactory.java:412)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:383)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:276)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:273)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:175)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:309)
+	... 45 more
+Caused by: java.lang.OutOfMemoryError: PermGen space
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClassCond(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.security.SecureClassLoader.defineClass(Unknown Source)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:2527)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:1010)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1483)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1361)
+	at org.hibernate.boot.registry.StandardServiceRegistryBuilder.<init>(StandardServiceRegistryBuilder.java:80)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.<init>(EntityManagerFactoryBuilderImpl.java:195)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.<init>(EntityManagerFactoryBuilderImpl.java:173)
+	at org.hibernate.jpa.boot.spi.Bootstrap.getEntityManagerFactoryBuilder(Bootstrap.java:43)
+	at org.hibernate.jpa.boot.spi.Bootstrap.getEntityManagerFactoryBuilder(Bootstrap.java:55)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createContainerEntityManagerFactory(HibernatePersistenceProvider.java:142)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:288)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:310)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1368)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory$1.run(AbstractAutowireCapableBeanFactory.java:412)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:383)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:276)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:273)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:175)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:309)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1243)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1011)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory$1.run(AbstractAutowireCapableBeanFactory.java:412)
+26 Apr 2013 06:25:41,050 INFO  [org.apache.struts.tiles.TilesPlugin] Tiles definition factory loaded for module ''.
+26 Apr 2013 06:25:41,081 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validator-rules.xml'
+26 Apr 2013 06:25:41,096 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validation.xml'
+26 Apr 2013 06:25:42,893 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action, module '': initialization started
+26 Apr 2013 06:25:43,003 INFO  [org.springframework.context.support.AbstractApplicationContext] Refreshing org.springframework.web.context.support.XmlWebApplicationContext@196f4b5: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 06:25:42 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 06:25:43,596 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from ServletContext resource [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 06:25:44,503 INFO  [org.springframework.context.support.AbstractApplicationContext] Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@196f4b5]: org.springframework.beans.factory.support.DefaultListableBeanFactory@1786286
+26 Apr 2013 06:25:45,253 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1786286: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 06:25:45,940 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 06:25:46,753 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.3.0.Beta1}
+26 Apr 2013 06:25:46,768 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+26 Apr 2013 06:25:46,768 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+26 Apr 2013 06:25:48,378 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+26 Apr 2013 06:25:49,347 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+26 Apr 2013 06:25:49,722 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000115: Hibernate connection pool size: 20
+26 Apr 2013 06:25:49,722 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000006: Autocommit mode: false
+26 Apr 2013 06:25:49,722 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 06:25:49,722 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000046: Connection properties: {user=yra, password=1234}
+26 Apr 2013 06:25:55,659 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.OracleDialect
+26 Apr 2013 06:25:55,706 WARN  [org.hibernate.dialect.Oracle9Dialect] HHH000063: The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+26 Apr 2013 06:25:55,737 WARN  [org.hibernate.dialect.OracleDialect] HHH000064: The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+26 Apr 2013 06:25:56,425 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+26 Apr 2013 06:25:59,175 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] Using context class 'org.springframework.web.context.support.XmlWebApplicationContext' for servlet 'action'
+26 Apr 2013 06:25:59,175 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action', module '': initialization completed in 16282 ms
+26 Apr 2013 06:26:16,003 INFO  [org.apache.struts.tiles.TilesRequestProcessor] Tiles definition factory found for request processor ''.
+26 Apr 2013 06:28:59,397 INFO  [org.springframework.context.support.AbstractApplicationContext] Closing org.springframework.web.context.support.XmlWebApplicationContext@196f4b5: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 06:25:42 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 06:28:59,397 INFO  [org.springframework.beans.factory.support.DefaultSingletonBeanRegistry] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1786286: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 06:28:59,412 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000030: Cleaning up connection pool [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 06:28:59,475 INFO  [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 06:28:59,553 WARN  [org.springframework.beans.factory.support.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'entityManagerFactory'
+org.hibernate.HibernateException: registry does not contain entity manager factory: persistenceUnit
+	at org.hibernate.jpa.internal.EntityManagerFactoryRegistry.removeEntityManagerFactory(EntityManagerFactoryRegistry.java:117)
+	at org.hibernate.jpa.internal.EntityManagerFactoryImpl.close(EntityManagerFactoryImpl.java:259)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(AbstractEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(AbstractEntityManagerFactoryBean.java:519)
+	at $Proxy11.close(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.destroy(AbstractEntityManagerFactoryBean.java:443)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:170)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:486)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:462)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:430)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:841)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:819)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:783)
+	at org.springframework.web.struts.ContextLoaderPlugIn.destroy(ContextLoaderPlugIn.java:389)
+	at org.apache.struts.action.ActionServlet.destroyModules(ActionServlet.java:516)
+	at org.apache.struts.action.ActionServlet.destroy(ActionServlet.java:284)
+	at org.apache.catalina.core.StandardWrapper.unload(StandardWrapper.java:1394)
+	at org.apache.catalina.core.StandardWrapper.stop(StandardWrapper.java:1739)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4601)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.StandardEngine.stop(StandardEngine.java:448)
+	at org.apache.catalina.core.StandardService.stop(StandardService.java:587)
+	at org.apache.catalina.core.StandardServer.stop(StandardServer.java:744)
+	at org.apache.catalina.startup.Catalina.stop(Catalina.java:648)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:615)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+26 Apr 2013 06:29:11,850 INFO  [org.apache.struts.tiles.TilesPlugin] Tiles definition factory loaded for module ''.
+26 Apr 2013 06:29:11,865 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validator-rules.xml'
+26 Apr 2013 06:29:11,897 INFO  [org.apache.struts.validator.ValidatorPlugIn] Loading validation rules file from '/WEB-INF/validation.xml'
+26 Apr 2013 06:29:14,100 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action, module '': initialization started
+26 Apr 2013 06:29:14,209 INFO  [org.springframework.context.support.AbstractApplicationContext] Refreshing org.springframework.web.context.support.XmlWebApplicationContext@4be2cc: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 06:29:14 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 06:29:14,428 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from ServletContext resource [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 06:29:14,756 INFO  [org.springframework.context.support.AbstractApplicationContext] Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@4be2cc]: org.springframework.beans.factory.support.DefaultListableBeanFactory@15d616e
+26 Apr 2013 06:29:15,131 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@15d616e: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 06:29:15,662 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 06:29:16,553 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.3.0.Beta1}
+26 Apr 2013 06:29:16,569 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+26 Apr 2013 06:29:16,569 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+26 Apr 2013 06:29:18,037 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+26 Apr 2013 06:29:19,022 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+26 Apr 2013 06:29:19,209 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000115: Hibernate connection pool size: 20
+26 Apr 2013 06:29:19,209 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000006: Autocommit mode: false
+26 Apr 2013 06:29:19,209 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 06:29:19,209 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000046: Connection properties: {user=yra, password=1234}
+26 Apr 2013 06:29:21,022 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.OracleDialect
+26 Apr 2013 06:29:21,053 WARN  [org.hibernate.dialect.Oracle9Dialect] HHH000063: The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+26 Apr 2013 06:29:21,053 WARN  [org.hibernate.dialect.OracleDialect] HHH000064: The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+26 Apr 2013 06:29:21,225 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+26 Apr 2013 06:29:23,569 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] Using context class 'org.springframework.web.context.support.XmlWebApplicationContext' for servlet 'action'
+26 Apr 2013 06:29:23,569 INFO  [org.springframework.web.struts.ContextLoaderPlugIn] ContextLoaderPlugIn for Struts ActionServlet 'action', module '': initialization completed in 9469 ms
+26 Apr 2013 06:29:51,100 INFO  [org.apache.struts.tiles.TilesRequestProcessor] Tiles definition factory found for request processor ''.
+26 Apr 2013 06:46:36,650 INFO  [org.springframework.context.support.AbstractApplicationContext] Closing org.springframework.web.context.support.XmlWebApplicationContext@4be2cc: display name [WebApplicationContext for namespace 'action-servlet']; startup date [Fri Apr 26 06:29:14 VET 2013]; root of context hierarchy; config locations [/WEB-INF/newsAppContext.xml]
+26 Apr 2013 06:46:37,541 INFO  [org.springframework.beans.factory.support.DefaultSingletonBeanRegistry] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@15d616e: defining beans [/news,newsDAO,transactionManager,entityManagerFactory]; root of factory hierarchy
+26 Apr 2013 06:46:39,010 INFO  [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000030: Cleaning up connection pool [jdbc:oracle:thin:@localhost:1521:xe]
+26 Apr 2013 06:46:43,697 INFO  [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'persistenceUnit'
+26 Apr 2013 06:46:43,853 WARN  [org.springframework.beans.factory.support.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'entityManagerFactory'
+org.hibernate.HibernateException: registry does not contain entity manager factory: persistenceUnit
+	at org.hibernate.jpa.internal.EntityManagerFactoryRegistry.removeEntityManagerFactory(EntityManagerFactoryRegistry.java:117)
+	at org.hibernate.jpa.internal.EntityManagerFactoryImpl.close(EntityManagerFactoryImpl.java:259)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(AbstractEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(AbstractEntityManagerFactoryBean.java:519)
+	at $Proxy11.close(Unknown Source)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.destroy(AbstractEntityManagerFactoryBean.java:443)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:170)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:486)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:462)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:430)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:841)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:819)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:783)
+	at org.springframework.web.struts.ContextLoaderPlugIn.destroy(ContextLoaderPlugIn.java:389)
+	at org.apache.struts.action.ActionServlet.destroyModules(ActionServlet.java:516)
+	at org.apache.struts.action.ActionServlet.destroy(ActionServlet.java:284)
+	at org.apache.catalina.core.StandardWrapper.unload(StandardWrapper.java:1394)
+	at org.apache.catalina.core.StandardWrapper.stop(StandardWrapper.java:1739)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4601)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1098)
+	at org.apache.catalina.core.StandardEngine.stop(StandardEngine.java:448)
+	at org.apache.catalina.core.StandardService.stop(StandardService.java:587)
+	at org.apache.catalina.core.StandardServer.stop(StandardServer.java:744)
+	at org.apache.catalina.startup.Catalina.stop(Catalina.java:648)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:615)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
