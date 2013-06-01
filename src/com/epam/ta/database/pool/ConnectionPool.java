@@ -3,57 +3,66 @@ package com.epam.ta.database.pool;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Locale;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Semaphore;
 
 import org.apache.log4j.Logger;
 
 import com.epam.ta.database.pool.exception.ConnectionPoolException;
 
-public class ConnectionPool {
-	private static final int NUMBER_OF_CONNECTIONS = 20;
+public final class ConnectionPool {
+	private int poolSize;
 
-	private static final String DATABASE_URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	private String dbURL;
 
-	private static final String DATABASE_USER = "yra";
+	private String dbUser;
 
-	private static final String DATABASE_PASSWORD = "1234";
+	private String dbPassword;
 
-	private static final String DATABASE_DRIVER_NAME = "oracle.jdbc.driver.OracleDriver";
-
-	// defined as volatile to make the write operation atomic
-	private static volatile ConnectionPool pool;
+	private String dbDriverName;
+	
+	private static ConnectionPool pool;
 
 	private BlockingQueue<Connection> busyConnections;
 
 	private BlockingQueue<Connection> availableConnections;
 
-	private Semaphore permissionGetter = new Semaphore(NUMBER_OF_CONNECTIONS,
-			true);
-
-	// used as lock in synchronized blocks
-	private static final Object lock = new Object();
-
 	private static final Logger logger = Logger.getLogger(ConnectionPool.class);
 
-	private ConnectionPool() throws ConnectionPoolException {
+	public ConnectionPool(int poolSize) throws ConnectionPoolException {
+		this.poolSize = poolSize;
+		loadDatabaseDriver();
+		// create queues for available and busy connections
 		availableConnections = new ArrayBlockingQueue<Connection>(
-				NUMBER_OF_CONNECTIONS);
+				poolSize);
 		busyConnections = new ArrayBlockingQueue<Connection>(
-				NUMBER_OF_CONNECTIONS);
-		for (int i = 0; i < NUMBER_OF_CONNECTIONS; i++) {
+				poolSize);
+		// fill these queues
+		for (int i = 0; i < this.poolSize; i++) {
 			availableConnections.add(makeNewConnection());
 		}
 	}
 
+	public void setDbURL(String dbURL) {
+		this.dbURL = dbURL;
+	}
+
+	public void setDbUser(String dbUser) {
+		this.dbUser = dbUser;
+	}
+
+	public void setDbPassword(String dbPassword) {
+		this.dbPassword = dbPassword;
+	}
+
+	public void setDbDriverName(String dbDriverName) {
+		this.dbDriverName = dbDriverName;
+	}
+
 	private Connection makeNewConnection() throws ConnectionPoolException {
 		try {
-			loadDatabaseDriver();
-			Locale.setDefault(Locale.ENGLISH);
-			return DriverManager.getConnection(DATABASE_URL, DATABASE_USER,
-					DATABASE_PASSWORD);
+			return DriverManager.getConnection(dbURL, dbUser,
+					dbPassword);
 		} catch (SQLException e) {
 			logger.error(e);
 			throw new ConnectionPoolException(e);
@@ -62,7 +71,7 @@ public class ConnectionPool {
 
 	private void loadDatabaseDriver() throws ConnectionPoolException {
 		try {
-			String driver = DATABASE_DRIVER_NAME;
+			String driver = dbDriverName;
 			Class.forName(driver);
 		} catch (ClassNotFoundException e) {
 			logger.error(e);
@@ -70,25 +79,8 @@ public class ConnectionPool {
 		}
 	}
 
-	public static ConnectionPool getInstance() throws ConnectionPoolException {
-		if (pool == null) {
-			synchronized (lock) {
-				// This if is needed when 1st thread is interrupted after first
-				// if. It would not allow to create one more pool.
-				if (pool == null) {
-					// The write operation wouldn't broke into 3 steps, because
-					// pool is declared as volatile.
-					pool = new ConnectionPool();
-				}
-			}
-		}
-		return pool;
-	}
-
 	public Connection getConnection() throws ConnectionPoolException {
 		try {
-			permissionGetter.acquire(); // I use semaphore here to avoid
-										// NullPointerException
 			Connection connection = availableConnections.take();
 			busyConnections.add(connection);
 			return connection;
@@ -98,15 +90,9 @@ public class ConnectionPool {
 		}
 	}
 
-	// synchronized, because if other thread interrupts work of
-	// method after connection will be added to availableConnections, then there
-	// would be wrong number of permissions.
 	public void makeConnectionFree(Connection connection) {
-		synchronized (lock) {
 			busyConnections.remove(connection);
 			availableConnections.add(connection);
-			permissionGetter.release();
-		}
 	}
 
 	public void closeAllConnections() throws ConnectionPoolException {

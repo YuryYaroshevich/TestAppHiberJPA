@@ -19,7 +19,7 @@ import com.epam.ta.model.News;
 import com.epam.ta.presentation.action.requestwrapper.RequestWrapper;
 import com.epam.ta.presentation.form.NewsForm;
 
-public class NewsAction extends DispatchAction {
+public final class NewsAction extends DispatchAction {
 	private INewsDAO newsDAO;
 
 	private static final String FORWARD_NAME_NEWS_LIST = "newsList";
@@ -179,7 +179,7 @@ public class NewsAction extends DispatchAction {
 		session.setAttribute(Globals.LOCALE_KEY, new Locale(language));
 		String previousPath = (String) session
 				.getAttribute(ATTR_NAME_PREVIOUS_PATH);
-		return new ActionForward(previousPath, true);
+		return new ActionForward(previousPath);
 	}
 
 	public ActionForward cancel(ActionMapping mapping, ActionForm form,
@@ -188,7 +188,7 @@ public class NewsAction extends DispatchAction {
 		RequestWrapper requestWrapper = (RequestWrapper) session
 				.getAttribute(ATTR_NAME_PATH_WRAPPER);
 		String previousPath = requestWrapper.getRequest();
-		return new ActionForward(previousPath, true);
+		return new ActionForward(previousPath);
 	}
 
 	private static RequestWrapper prepareRequestWrapper(HttpSession session) {

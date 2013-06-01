@@ -2,14 +2,14 @@ package com.epam.ta.database.dao.sqlquery;
 
 import java.util.ResourceBundle;
 
-public class SQLQueryGetter {
+public final class SQLQueryGetter {
 	private static final String SQL_PROPERTY_FILE = "com."
 			+ "epam.ta.database.dao.sqlquery.sqlquery";
 
 	private static final ResourceBundle bundle = ResourceBundle
 			.getBundle(SQL_PROPERTY_FILE);
 
-	/* Keys for reading sql queries from property file. */
+	/* Keys for reading SQL queries from property file. */
 	public static final String FETCH_BY_ID_QUERY = "FETCH_BY_ID_QUERY";
 	public static final String GET_LIST_QUERY = "GET_LIST_QUERY";
 	public static final String DELETE_NEWS_QUERY = "DELETE_NEWS_QUERY";

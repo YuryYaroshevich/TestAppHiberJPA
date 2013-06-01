@@ -1,7 +1,7 @@
 package com.epam.ta.presentation.action.requestwrapper;
 
-public class RequestWrapper {
-	private static final String REQUEST_ROOT = "news.do?method=";
+public final class RequestWrapper {
+	private static final String REQUEST_ROOT = "/news.do?method=";
 
 	private static final String PARAM_NAME_NEWS_ID = "newsId";
 

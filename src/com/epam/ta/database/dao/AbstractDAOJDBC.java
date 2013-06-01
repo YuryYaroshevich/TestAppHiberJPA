@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 
 import com.epam.ta.database.dao.exception.NewsDAOException;
 
-public abstract class AbstractDAOJDBC {
+abstract class AbstractDAOJDBC {
 	private static final Logger logger = Logger.getLogger(AbstractDAOJDBC.class);
 	
 	protected static void closeStatement(Statement statement)
