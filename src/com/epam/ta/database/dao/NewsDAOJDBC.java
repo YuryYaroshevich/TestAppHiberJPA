@@ -42,10 +42,6 @@ public final class NewsDAOJDBC extends AbstractDAOJDBC implements INewsDAO {
 		pool = connectionPool;
 	}
 
-	public ConnectionPool getConnectionPool() {
-		return pool;
-	}
-
 	public News fetchNewsById(long newsId) throws TATechnicalException {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;

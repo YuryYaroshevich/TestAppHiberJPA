@@ -15,7 +15,7 @@
 	</bean>
 
 	<context:property-placeholder
-		location="classpath:com.epam.ta.database.pool.cp.properties" />
+		location="classpath:com/epam/ta/database/pool/cp.properties" />
 
 	<bean id="newsDAO" class="com.epam.ta.database.dao.NewsDAOJDBC"
 		factory-method="getInstance">
@@ -25,10 +25,10 @@
 	<bean id="connectionPool" class="com.epam.ta.database.pool.ConnectionPool"
 		destroy-method="closeAllConnections">
 	    <constructor-arg value="${db.pool.size}" />
-	    <property name="dbURL" value="${db.url}" />
-	    <property name="dbUser" value="${db.user}" />
-	    <property name="dbPassword" value="${db.password}" />
-	    <property name="dbDriverName" value="${db.driver.name}" />
+	    <constructor-arg value="${db.driver.name}" />
+	    <constructor-arg value="${db.user}" />
+	    <constructor-arg value="${db.password}" />
+	    <constructor-arg value="${db.url}" />   
 	</bean>
 
 	<!-- <bean id="newsDAO" class="com.epam.ta.database.dao.NewsDAOHibernate" 

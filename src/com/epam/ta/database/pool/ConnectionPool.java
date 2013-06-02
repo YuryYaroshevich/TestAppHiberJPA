@@ -20,8 +20,6 @@ public final class ConnectionPool {
 	private String dbPassword;
 
 	private String dbDriverName;
-	
-	private static ConnectionPool pool;
 
 	private BlockingQueue<Connection> busyConnections;
 
@@ -29,18 +27,30 @@ public final class ConnectionPool {
 
 	private static final Logger logger = Logger.getLogger(ConnectionPool.class);
 
-	public ConnectionPool(int poolSize) throws ConnectionPoolException {
-		this.poolSize = poolSize;
+	public ConnectionPool(int poolSize, String dbDriverName, String dbUser,
+			String dbPassword, String dbURL) throws ConnectionPoolException {
+		init(poolSize, dbDriverName, dbUser, dbPassword, dbURL);
 		loadDatabaseDriver();
 		// create queues for available and busy connections
-		availableConnections = new ArrayBlockingQueue<Connection>(
-				poolSize);
-		busyConnections = new ArrayBlockingQueue<Connection>(
-				poolSize);
+		availableConnections = new ArrayBlockingQueue<Connection>(poolSize);
+		busyConnections = new ArrayBlockingQueue<Connection>(poolSize);
 		// fill these queues
 		for (int i = 0; i < this.poolSize; i++) {
 			availableConnections.add(makeNewConnection());
 		}
+	}
+
+	private void init(int poolSize, String dbDriverName, String dbUser,
+			String dbPassword, String dbURL) {
+		setPoolSize(poolSize);
+		setDbDriverName(dbDriverName);
+		setDbUser(dbUser);
+		setDbPassword(dbPassword);
+		setDbURL(dbURL);
+	}
+
+	public void setPoolSize(int poolSize) {
+		this.poolSize = poolSize;
 	}
 
 	public void setDbURL(String dbURL) {
@@ -61,8 +71,7 @@ public final class ConnectionPool {
 
 	private Connection makeNewConnection() throws ConnectionPoolException {
 		try {
-			return DriverManager.getConnection(dbURL, dbUser,
-					dbPassword);
+			return DriverManager.getConnection(dbURL, dbUser, dbPassword);
 		} catch (SQLException e) {
 			logger.error(e);
 			throw new ConnectionPoolException(e);
@@ -91,8 +100,8 @@ public final class ConnectionPool {
 	}
 
 	public void makeConnectionFree(Connection connection) {
-			busyConnections.remove(connection);
-			availableConnections.add(connection);
+		busyConnections.remove(connection);
+		availableConnections.add(connection);
 	}
 
 	public void closeAllConnections() throws ConnectionPoolException {
