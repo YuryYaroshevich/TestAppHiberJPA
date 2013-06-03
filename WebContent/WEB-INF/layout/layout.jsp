@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib uri="/struts-tiles.tld" prefix="tiles"%>
 <%@ taglib uri="/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/struts-bean.tld" prefix="bean"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,7 +21,10 @@
 <link rel="stylesheet" href="css/layout/content.css" type="text/css"
 	media="screen" />
 <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-<title><tiles:getAsString name="title" /></title>
+<title>
+    <tiles:useAttribute name="title" />
+    <bean:message key="${title}" />
+</title>
 </head>
 <body>
 	<div id="header">

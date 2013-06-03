@@ -9,7 +9,7 @@
 
 <script type="text/javascript" src="js/confirmDeletingGroup.js"></script>
 <script type="text/javascript">
-	var areYouSureMsg = '<bean:message key="are.you.sure" />';
+	var areYouSureMsg = '<bean:message key="confirm.deleting.news.list" />';
 	var noCheckedNewsMsg = '<bean:message key="no.checked.news" />';
 </script>
 

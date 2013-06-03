@@ -18,19 +18,17 @@ import com.epam.ta.util.datelocalizator.DateLocalizator;
 @Table(name = "News")
 @NamedQuery(name = "newsList", query = "from News")
 public class News implements Serializable {
+	private static final long serialVersionUID = 7768144198842298346L;
+
 	private long newsId;
-
 	private String title;
-
 	private String brief;
-
 	private String content;
-
 	private String dateOfPublishing;
 
 	public News() {
 		Date date = Calendar.getInstance().getTime();
-		dateOfPublishing = DateLocalizator.USformat(date);
+		dateOfPublishing = DateLocalizator.getDateOfDefaultFormat(date);
 	}
 
 	public News(long newsId) {

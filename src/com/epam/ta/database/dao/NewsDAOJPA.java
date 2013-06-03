@@ -14,7 +14,7 @@ import javax.persistence.TypedQuery;
 import com.epam.ta.exception.TATechnicalException;
 import com.epam.ta.model.News;
 
-public class NewsDAOJPA implements INewsDAO {
+public final class NewsDAOJPA implements INewsDAO {
 	private static final INewsDAO dao = new NewsDAOJPA();
 
 	@PersistenceUnit

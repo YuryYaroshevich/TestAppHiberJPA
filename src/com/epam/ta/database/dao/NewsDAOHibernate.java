@@ -12,7 +12,7 @@ import org.hibernate.Transaction;
 import com.epam.ta.exception.TATechnicalException;
 import com.epam.ta.model.News;
 
-public class NewsDAOHibernate implements INewsDAO {
+public final class NewsDAOHibernate implements INewsDAO {
 	private static final INewsDAO dao = new NewsDAOHibernate();
 
 	private static SessionFactory sessionFactory;
