@@ -1,7 +1,6 @@
 package com.epam.ta.database.dao;
 
-import static com.epam.ta.database.dao.sqlquery.SQLQueryGetter.deleteGroupQuery;
-
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -22,6 +21,9 @@ public final class NewsDAOJPA implements INewsDAO {
 
 	// key for named query
 	private static final String NEWS_LIST = "newsList";
+	private static final String DELETE_NEWS_GROUP = "deleteNewsGroup";
+	// parameter name for deleting news group query
+	private static final String NEWS_GROUP = "newsGroup";
 
 	private NewsDAOJPA() {
 	}
@@ -43,7 +45,7 @@ public final class NewsDAOJPA implements INewsDAO {
 		EntityTransaction tx = entManager.getTransaction(); 
 		tx.begin();
 		TypedQuery<News> query = entManager.createNamedQuery(NEWS_LIST,
-				News.class);
+				News.class); 
 		List<News> newsList = query.getResultList();
 		tx.commit();
 		entManager.close();
@@ -75,7 +77,8 @@ public final class NewsDAOJPA implements INewsDAO {
 		EntityManager entManager = entityManagerFactory.createEntityManager();
 		EntityTransaction tx = entManager.getTransaction();
 		tx.begin();
-		Query query = entManager.createQuery(deleteGroupQuery(selectedNews));
+		Query query = entManager.createNamedQuery(DELETE_NEWS_GROUP);
+		query.setParameter(NEWS_GROUP, Arrays.asList(selectedNews));//entManager.createQuery(deleteGroupQuery(selectedNews));
 		query.executeUpdate();
 		tx.commit();
 		entManager.close();

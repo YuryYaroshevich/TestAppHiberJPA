@@ -17,4 +17,7 @@
 	<query name="newsList">
 		<![CDATA[from News]]>
 	</query>
+	<query name="deleteNewsGroup">
+	    <![CDATA[delete from News where news_id in(:newsGroup)]]>
+	</query>
 </hibernate-mapping>

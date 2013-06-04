@@ -17,30 +17,33 @@
 	<context:property-placeholder
 		location="classpath:com/epam/ta/database/pool/cp.properties" />
 
-	<bean id="newsDAO" class="com.epam.ta.database.dao.NewsDAOJDBC"
-		factory-method="getInstance">
-		<property name="connectionPool" ref="connectionPool" />
-	</bean>
+    <bean id="newsDAO" class="com.epam.ta.database.dao.NewsDAOJDBC" factory-method="getInstance"> 
+		<property name="connectionPool" ref="connectionPool" /> </bean>
 
 	<bean id="connectionPool" class="com.epam.ta.database.pool.ConnectionPool"
 		destroy-method="closeAllConnections">
-	    <constructor-arg value="${db.pool.size}" />
-	    <constructor-arg value="${db.driver.name}" />
-	    <constructor-arg value="${db.user}" />
-	    <constructor-arg value="${db.password}" />
-	    <constructor-arg value="${db.url}" />   
+		<constructor-arg value="${db.pool.size}" />
+		<constructor-arg value="${db.driver.name}" />
+		<constructor-arg value="${db.user}" />
+		<constructor-arg value="${db.password}" />
+		<constructor-arg value="${db.url}" />
 	</bean>
 
 	<!-- <bean id="newsDAO" class="com.epam.ta.database.dao.NewsDAOHibernate" 
 		factory-method="getInstance" destroy-method="close"> <property name="sessionFactory" 
 		ref="sessionFactory" /> </bean> <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> 
 		<property name="configLocation"> <value>classpath:hibernate.cfg.xml</value> 
-		</property> </bean> -->
+		</property> </bean>  -->
 
-	<!--<bean id="newsDAO" class="com.epam.ta.database.dao.NewsDAOJPA" factory-method="getInstance" 
-		destroy-method="close"> <property name="entityManagerFactory" ref="entityManagerFactory" 
-		/> </bean> <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"> 
-		<property name="entityManagerFactory" ref="entityManagerFactory" /> </bean> 
-		<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
-		<property name="persistenceUnitName" value="persistenceUnit" /> </bean> -->
+	<!-- <bean id="newsDAO" class="com.epam.ta.database.dao.NewsDAOJPA"
+		factory-method="getInstance" destroy-method="close">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="persistenceUnit" />
+	</bean>-->
 </beans>
