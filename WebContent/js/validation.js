@@ -4,7 +4,7 @@ $(document).ready(function() {
 		var $dateInput = $("input[name='dateOfPublishing']");
 		var $briefTextArea = $("textarea[name='brief']");
 		var $contentTextArea = $("textarea[name='content']");
-		
+
 		var res = isTitleValid($titleInput) &
 	       isDateValid($dateInput) &
 	       isBriefValid($briefTextArea) & 

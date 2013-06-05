@@ -164,13 +164,15 @@ public final class NewsAction extends DispatchAction {
 			ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws TATechnicalException {
 		ActionForward whereWeGo = mapping.findForward(FORWARD_NEWS_LIST);
-		if (isTokenValid(request, true)) {
+		if (isTokenValid(request)) {
 			NewsForm newsForm = (NewsForm) form;
 			String[] selectedNews = newsForm.getSelectedNews();
 			if (selectedNews != null) {
 				newsDAO.deleteNewsGroup(selectedNews);
 				newsForm.setNewsList(newsDAO.getNewsList());
 			}
+			//resetToken(request);
+			saveToken(request);
 			HttpSession session = request.getSession(true);
 			session.setAttribute(ATTR_PREVIOUS_PATH, whereWeGo.getPath());
 		}
