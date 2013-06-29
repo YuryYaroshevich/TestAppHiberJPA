@@ -166,6 +166,7 @@ public final class NewsAction extends DispatchAction {
 				newsDAO.deleteNewsGroup(selectedNews);
 				newsForm.deleteGroupFromList();
 			}
+			saveToken(request);
 			HttpSession session = request.getSession(true);
 			session.setAttribute(ATTR_NAME_PREVIOUS_PATH, whereWeGo.getPath());
 		}
