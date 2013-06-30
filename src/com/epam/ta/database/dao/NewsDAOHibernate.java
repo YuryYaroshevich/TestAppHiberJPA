@@ -1,7 +1,5 @@
 package com.epam.ta.database.dao;
 
-import static com.epam.ta.database.dao.sqlquery.SQLQueryGetter.deleteGroupQuery;
-
 import java.util.List;
 
 import org.hibernate.Query;
@@ -12,13 +10,16 @@ import org.hibernate.Transaction;
 import com.epam.ta.exception.TATechnicalException;
 import com.epam.ta.model.News;
 
-public class NewsDAOHibernate implements INewsDAO {
+public final class NewsDAOHibernate implements INewsDAO {
 	private static final INewsDAO dao = new NewsDAOHibernate();
 
 	private static SessionFactory sessionFactory;
 
 	// key for named query
 	private static final String NEWS_LIST = "newsList";
+	private static final String DELETE_NEWS_GROUP = "deleteNewsGroup";
+	// parameter for deleting news group query
+	private static final String NEWS_GROUP = "newsGroup";
 
 	public static INewsDAO getInstance() {
 		return dao;
@@ -63,8 +64,10 @@ public class NewsDAOHibernate implements INewsDAO {
 			throws TATechnicalException {
 		Session session = sessionFactory.getCurrentSession();
 		Transaction tx = session.beginTransaction();
-		Query deletingQuery = session
-				.createQuery(deleteGroupQuery(selectedNews));
+		Query deletingQuery = session.getNamedQuery(DELETE_NEWS_GROUP);
+		deletingQuery.setParameterList(NEWS_GROUP, selectedNews);
+		/*session
+				.createQuery(deleteGroupQuery(selectedNews));*/
 		deletingQuery.executeUpdate();
 		tx.commit();
 	}

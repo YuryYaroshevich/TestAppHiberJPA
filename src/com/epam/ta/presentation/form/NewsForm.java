@@ -1,9 +1,12 @@
 package com.epam.ta.presentation.form;
 
+import static com.epam.ta.util.appconstant.TAConstant.DEFAULT_DATE_FORMAT;
+import static com.epam.ta.util.appconstant.TAConstant.getConstant;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,15 +18,23 @@ import org.apache.struts.validator.ValidatorForm;
 import com.epam.ta.model.News;
 import com.epam.ta.model.comparison.NewsByDateComparator;
 
-public class NewsForm extends ValidatorForm {
+public final class NewsForm extends ValidatorForm {
+	private static final long serialVersionUID = 4795803945923209098L;
+
 	private List<News> newsList;
 
 	private News newsMessage;
 
 	private String[] selectedNews;
 
-	private static final Comparator<News> newsByDateComparator = 
-			new NewsByDateComparator();
+	private static final Comparator<News> newsByDateComparator;
+
+	//  TODO: take it away in wrapper
+	static {
+		SimpleDateFormat defaultDateFormat = new SimpleDateFormat(
+				getConstant(DEFAULT_DATE_FORMAT));
+		newsByDateComparator = new NewsByDateComparator(defaultDateFormat);
+	}
 
 	public NewsForm() {
 		newsList = new ArrayList<News>();
@@ -41,10 +52,12 @@ public class NewsForm extends ValidatorForm {
 	}
 
 	public List<News> getNewsList() {
+	//  TODO: take it away in wrapper
 		Collections.sort(newsList, newsByDateComparator);
 		return newsList;
 	}
 
+    //  TODO: take it away in wrapper
 	public List<News> getNewsList(Comparator<News> newsComparator) {
 		Collections.sort(newsList, newsComparator);
 		return newsList;
@@ -54,14 +67,6 @@ public class NewsForm extends ValidatorForm {
 	public void setNewsList(List<News> list) {
 		this.newsList.clear(); // to avoid repetitive elements
 		this.newsList.addAll(list);
-	}
-
-	public void addToNewsList(News news) {
-		newsList.add(news);
-	}
-
-	public void deleteFromNewsList(News news) {
-		newsList.remove(news);
 	}
 
 	public News getNewsMessage() {
@@ -82,22 +87,6 @@ public class NewsForm extends ValidatorForm {
 
 	public void setSelectedNews(String[] selectedNews) {
 		this.selectedNews = selectedNews;
-	}
-
-	public void deleteGroupFromList() {
-		Iterator it = newsList.iterator();
-		News news = null;
-		long newsId;
-		while (it.hasNext()) {
-			news = (News) it.next();
-			newsId = news.getNewsId();
-			for (int i = 0; i < selectedNews.length; i++) {
-				if (newsId == Long.valueOf(selectedNews[i])) {
-					it.remove();
-					break;
-				}
-			}
-		}
 	}
 
 	// getters and setters for newsMessage

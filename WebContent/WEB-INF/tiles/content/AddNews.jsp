@@ -23,7 +23,7 @@
 <div id="content-head">
 	<span id="label"><bean:message key="head.content.news" /></span><span
 		id="arrows"> &gt;&gt;</span>
-	<bean:message key="head.content.add" />
+	<bean:message key="head.content.${titlePart}" />
 </div>
 <html:errors />
 <html:form action="news.do?method=saveNews">

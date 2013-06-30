@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -16,21 +17,23 @@ import com.epam.ta.util.datelocalizator.DateLocalizator;
 
 @Entity
 @Table(name = "News")
-@NamedQuery(name = "newsList", query = "from News")
+@NamedQueries({
+		@NamedQuery(name = "newsList", query = "from News"),
+		@NamedQuery(name = "deleteNewsGroup",
+		     query = "delete from News where news_id in(:newsGroup)")
+})
 public class News implements Serializable {
+	private static final long serialVersionUID = 7768144198842298346L;
+
 	private long newsId;
-
 	private String title;
-
 	private String brief;
-
 	private String content;
-
 	private String dateOfPublishing;
 
 	public News() {
 		Date date = Calendar.getInstance().getTime();
-		dateOfPublishing = DateLocalizator.USformat(date);
+		dateOfPublishing = DateLocalizator.getDateOfDefaultFormat(date);
 	}
 
 	public News(long newsId) {
@@ -53,7 +56,7 @@ public class News implements Serializable {
 		setContent(news.content);
 		setDateOfPublishing(news.dateOfPublishing);
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NEWS_SEQ")
 	@Column(name = "NEWS_ID")

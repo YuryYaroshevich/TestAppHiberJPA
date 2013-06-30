@@ -9,7 +9,7 @@
 	type="text/css" media="screen" />
 
 <script type="text/javascript">
-	var areYouSureMsg = '<bean:message key="are.you.sure" />';
+	var areYouSureMsg = '<bean:message key="confirm.deleting.news" />';
 </script>
 <script type="text/javascript" src="js/confirmDeleting.js"></script>
 

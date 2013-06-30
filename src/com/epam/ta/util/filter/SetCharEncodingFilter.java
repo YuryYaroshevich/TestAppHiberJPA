@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-public class SetCharEncodingFilter implements Filter {
+public final class SetCharEncodingFilter implements Filter {
 	private static final String PARAM_NAME_ENCODING = "encoding";
 
 	private static final String DEFAULT_ENCODING = "utf-8";

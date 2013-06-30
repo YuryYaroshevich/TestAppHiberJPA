@@ -3,28 +3,28 @@
 "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
 <tiles-definitions>
 	<definition name="layout" page="/WEB-INF/layout/layout.jsp">
-		<put name="header" value="/WEB-INF/layout/header.jsp" />
-		<put name="footer" value="/WEB-INF/layout/footer.jsp" />
-		<put name="menu" value="/WEB-INF/layout/menu.jsp" />
+		<put name="header" value="/WEB-INF/tiles/pageElements/header.jsp" />
+		<put name="footer" value="/WEB-INF/tiles/pageElements/footer.jsp" />
+		<put name="menu" value="/WEB-INF/tiles/pageElements/menu.jsp" />
 	</definition>
 
 	<definition name="newsList" extends="layout">
-		<put name="title" value="News list" />
-		<put name="content" value="/WEB-INF/content/NewsList.jsp" />
+		<put name="title" value="title.news.list" />
+		<put name="content" value="/WEB-INF/tiles/content/NewsList.jsp" />
 	</definition>
 	
 	<definition name="viewNews" extends="layout">
-		<put name="title" value="News view" />
-		<put name="content" value="/WEB-INF/content/ViewNews.jsp" />
+		<put name="title" value="title.view.news" />
+		<put name="content" value="/WEB-INF/tiles/content/ViewNews.jsp" />
 	</definition>
 	
 	<definition name="editNews" extends="layout">
-		<put name="title" value="Edit news" />
-		<put name="content" value="/WEB-INF/content/EditNews.jsp" />
+		<put name="title" value="title.edit.news" />
+		<put name="content" value="/WEB-INF/tiles/content/AddNews.jsp" />
 	</definition>
 	
 	<definition name="addNews" extends="layout">
-		<put name="title" value="Add news" />
-		<put name="content" value="/WEB-INF/content/AddNews.jsp" />
+		<put name="title" value="title.add.news" />
+		<put name="content" value="/WEB-INF/tiles/content/AddNews.jsp" />
 	</definition>
 </tiles-definitions>

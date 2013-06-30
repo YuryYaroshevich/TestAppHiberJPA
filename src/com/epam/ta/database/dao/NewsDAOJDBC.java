@@ -1,5 +1,14 @@
 package com.epam.ta.database.dao;
 
+import static com.epam.ta.database.dao.sqlquery.SQLQueryGetter.ADD_NEWS_QUERY;
+import static com.epam.ta.database.dao.sqlquery.SQLQueryGetter.DELETE_NEWS_QUERY;
+import static com.epam.ta.database.dao.sqlquery.SQLQueryGetter.FETCH_BY_ID_QUERY;
+import static com.epam.ta.database.dao.sqlquery.SQLQueryGetter.GET_ID_OF_NEW_NEWS_QUERY;
+import static com.epam.ta.database.dao.sqlquery.SQLQueryGetter.GET_LIST_QUERY;
+import static com.epam.ta.database.dao.sqlquery.SQLQueryGetter.UPDATE_NEWS_QUERY;
+import static com.epam.ta.database.dao.sqlquery.SQLQueryGetter.deleteGroupQuery;
+import static com.epam.ta.database.dao.sqlquery.SQLQueryGetter.getSQlQuery;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,6 +16,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.log4j.Logger;
 
@@ -15,8 +26,6 @@ import com.epam.ta.database.dao.sqlquery.SQLQueryGetter;
 import com.epam.ta.database.pool.ConnectionPool;
 import com.epam.ta.exception.TATechnicalException;
 import com.epam.ta.model.News;
-
-import static com.epam.ta.database.dao.sqlquery.SQLQueryGetter.*;
 
 public final class NewsDAOJDBC extends AbstractDAOJDBC implements INewsDAO {
 	private static final INewsDAO dao = new NewsDAOJDBC();
@@ -28,6 +37,9 @@ public final class NewsDAOJDBC extends AbstractDAOJDBC implements INewsDAO {
 	private static final int BRIEF_COLUMN_INDEX = 3;
 	private static final int CONTENT_COLUMN_INDEX = 4;
 	private static final int DATE_OF_PUBLISHING_COLUMN_INDEX = 5;
+	
+	// set to true for fair access
+	private static final Lock lock = new ReentrantLock(true);
 
 	private static final Logger logger = Logger.getLogger(NewsDAOJDBC.class);
 
@@ -151,12 +163,14 @@ public final class NewsDAOJDBC extends AbstractDAOJDBC implements INewsDAO {
 			statement.setString(2, news.getBrief());
 			statement.setString(3, news.getContent());
 			statement.setString(4, news.getDateOfPublishing());
+			lock.lock();
 			statement.executeUpdate();
 			return getLastCreatedNewsId(connection);
 		} catch (SQLException e) {
 			logger.error(e);
 			throw new NewsDAOException(e);
 		} finally {
+			lock.unlock();
 			closeStatement(statement);
 			pool.makeConnectionFree(connection);
 		}

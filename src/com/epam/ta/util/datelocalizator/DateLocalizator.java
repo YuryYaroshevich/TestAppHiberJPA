@@ -6,26 +6,34 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-public class DateLocalizator {
-	private static final SimpleDateFormat US_DATE_FORMAT = 
-			new SimpleDateFormat("MM/dd/yyyy");
+import com.epam.ta.util.appconstant.TAConstant;
 
-	private static final Logger logger = Logger.getLogger(DateLocalizator.class);
-	
+public final class DateLocalizator {
+	private static final SimpleDateFormat DEFAULT_DATE_FORMAT;
+
+	static {
+		String defaultFormat = TAConstant
+				.getConstant(TAConstant.DEFAULT_DATE_FORMAT);
+		DEFAULT_DATE_FORMAT = new SimpleDateFormat(defaultFormat);
+	}
+
+	private static final Logger logger = Logger
+			.getLogger(DateLocalizator.class);
+
 	private DateLocalizator() {
 	}
 
-	public static Date parseUSDate(String dateStr) {
+	public static Date parseDate(SimpleDateFormat dateFormat, String dateStr) {
 		Date date = null;
 		try {
-			 date = US_DATE_FORMAT.parse(dateStr);
+			date = dateFormat.parse(dateStr);
 		} catch (ParseException e) {
 			logger.error(e);
 		}
 		return date;
 	}
-	
-	public static String USformat(Date date) {
-		return US_DATE_FORMAT.format(date);
+
+	public static String getDateOfDefaultFormat(Date date) {
+		return DEFAULT_DATE_FORMAT.format(date);
 	}
 }
