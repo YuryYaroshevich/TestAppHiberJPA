@@ -34,7 +34,7 @@ public final class ConnectionPool {
 		// create queues for available and busy connections
 		availableConnections = new ArrayBlockingQueue<Connection>(poolSize);
 		busyConnections = new ArrayBlockingQueue<Connection>(poolSize);
-		// fill these queues
+		// fill these queues by new connections
 		for (int i = 0; i < this.poolSize; i++) {
 			availableConnections.add(makeNewConnection());
 		}
