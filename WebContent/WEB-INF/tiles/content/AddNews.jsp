@@ -38,11 +38,11 @@
 		</tr>
 		<tr>
 			<td class="label"><bean:message key="add.news.brief" /></td>
-			<td><html:textarea property="brief" cols="60" rows="10" /></td>
+			<td><html:textarea property="brief" cols="60" rows="8" /></td>
 		</tr>
 		<tr>
 			<td class="label"><bean:message key="add.news.content" /></td>
-			<td><html:textarea property="content" cols="60" rows="20" /></td>
+			<td><html:textarea property="content" cols="60" rows="17" /></td>
 		</tr>
 		<tr>
 			<td></td>
