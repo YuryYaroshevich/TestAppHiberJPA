@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="css/layout/content.css" type="text/css"
 	media="screen" />
 <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/contentMinHeight.js"></script>
 <title>
     <tiles:useAttribute name="title" />
     <bean:message key="${title}" />

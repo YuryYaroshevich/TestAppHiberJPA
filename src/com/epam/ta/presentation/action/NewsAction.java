@@ -31,6 +31,13 @@ public final class NewsAction extends DispatchAction {
 	private static final String ATTR_LANGUAGE = "language";
 	private static final String ATTR_PREVIOUS_PATH = "previousPath";
 
+	// I use one JSP for adding and editing news, so these constants for making
+	// appropriate title in adding and editing pages
+	private static final String ADD_TITLE_PART = "add";
+	private static final String EDIT_TITLE_PART = "edit";
+	private static final String TITLE_PART = "titlePart";
+	
+
 	public void setNewsDAO(INewsDAO newsDAO) {
 		this.newsDAO = newsDAO;
 	}
@@ -69,6 +76,7 @@ public final class NewsAction extends DispatchAction {
 				.getPath());
 		session.setAttribute(ATTR_PATH_WRAPPER, requestWrapper);
 		session.setAttribute(ATTR_PREVIOUS_PATH, whereWeGo.getPath());
+		session.setAttribute(TITLE_PART, ADD_TITLE_PART);
 		return whereWeGo;
 	}
 
@@ -123,6 +131,7 @@ public final class NewsAction extends DispatchAction {
 		HttpSession session = request.getSession(true);
 		ActionForward whereWeGo = mapping.findForward(FORWARD_EDIT_NEWS);
 		session.setAttribute(ATTR_PREVIOUS_PATH, whereWeGo.getPath());
+		session.setAttribute(TITLE_PART, EDIT_TITLE_PART);
 		return whereWeGo;
 	}
 
@@ -171,7 +180,7 @@ public final class NewsAction extends DispatchAction {
 				newsDAO.deleteNewsGroup(selectedNews);
 				newsForm.setNewsList(newsDAO.getNewsList());
 			}
-			//resetToken(request);
+			// resetToken(request);
 			saveToken(request);
 			HttpSession session = request.getSession(true);
 			session.setAttribute(ATTR_PREVIOUS_PATH, whereWeGo.getPath());

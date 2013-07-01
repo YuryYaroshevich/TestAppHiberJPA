@@ -20,7 +20,7 @@
 	
 	<definition name="editNews" extends="layout">
 		<put name="title" value="title.edit.news" />
-		<put name="content" value="/WEB-INF/tiles/content/EditNews.jsp" />
+		<put name="content" value="/WEB-INF/tiles/content/AddNews.jsp" />
 	</definition>
 	
 	<definition name="addNews" extends="layout">
